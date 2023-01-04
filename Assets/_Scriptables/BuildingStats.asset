@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64fce15b50aaffc40970e6a05337bbab, type: 3}
+  m_Name: BuildingStats
+  m_EditorClassIdentifier: 
+  Buildings:
+  - BuildingName: Barracks
+    HealthPoints: 100
+    BuildingXSize: 4
+    BuildingYSize: 4
+    BuildingInfo: 'Can spawn soldiers.
+
+      Good looking tents for soldiers to
+      drink and train.'
+    BuildingSprite: {fileID: 21300000, guid: 0dc2e499ecf25e340b225c54fdd4a0a2, type: 3}
+    BuildingPrefab: {fileID: 5842045479344537355, guid: 0adc51d5e0dc597448d19f638a8c9426, type: 3}
+  - BuildingName: PowerPlant
+    HealthPoints: 50
+    BuildingXSize: 2
+    BuildingYSize: 3
+    BuildingInfo: 'Can generate energy.
+
+      Electricity is an important asset
+      for the town.'
+    BuildingSprite: {fileID: 21300000, guid: ee6fe06dcd8cff7459bfff2b9dff7344, type: 3}
+    BuildingPrefab: {fileID: 2235781624565071577, guid: 09e3691dfdbd10549b1e6d4e9b9ad4d1, type: 3}
+  - BuildingName: TownCenter
+    HealthPoints: 200
+    BuildingXSize: 5
+    BuildingYSize: 5
+    BuildingInfo: 'Heart of the town.
+
+      Mayor sitting inside.'
+    BuildingSprite: {fileID: 21300000, guid: 4e922f4236f22084d82d6ff45ce65823, type: 3}
+    BuildingPrefab: {fileID: 3593236808945187868, guid: 08ec7b1992e8e4140936f9bf2a3d3763, type: 3}
