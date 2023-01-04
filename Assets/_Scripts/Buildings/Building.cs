@@ -59,7 +59,7 @@ public class Building : GridObject, IHaveHealth
                 tile.SetEmpty(true);
             }
         }
-        Destroy(this);
+        // Destroy(this);
         Destroy(gameObject);
     }
     

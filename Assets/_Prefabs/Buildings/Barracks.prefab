@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba3fad03771f6047ac9b550be0e9df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectName: 
+  ObjectName: Barracks
   SpriteRenderer: {fileID: 7000932891776109353}
   Spawnables:
   - {fileID: 2822071264718467429, guid: 2360b66cd8be36a4eb13f0412f5c893d, type: 3}

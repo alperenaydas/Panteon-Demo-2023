@@ -9,6 +9,8 @@ public class GridManager : MonoBehaviour
     public float CellSize;
     
     [SerializeField] private int m_Width, m_Height;
+    public int Width => m_Width;
+    public int Height => m_Height;
 
     [SerializeField] private Color m_IndexZeroColor, m_IndexOneColor;
 

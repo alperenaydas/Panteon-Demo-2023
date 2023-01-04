@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class Soldier : Spawnable, IHaveHealth, ICanDamage
 {
@@ -108,7 +109,7 @@ public class Soldier : Spawnable, IHaveHealth, ICanDamage
         {
             yield return null;
         }
-        while (attackingUnit!=null && m_Attacking && !m_IsMoving)
+        while (attackingUnit as Object && m_Attacking && !m_IsMoving)
         {
             InflictDamage(DamagePoints, attackingUnit);
             if (attackingUnit.HealthPoints <= 0)
@@ -127,6 +128,7 @@ public class Soldier : Spawnable, IHaveHealth, ICanDamage
 
     public void Die()
     {
+        OnTile.SetEmpty(true);
         Destroy(gameObject);
     }
 

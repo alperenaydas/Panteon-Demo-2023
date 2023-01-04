@@ -7,14 +7,6 @@ public class Barracks : Building
     public Transform SpawnPoint;
 
     public bool SpawnPointSet { get; set; }
-    protected override void Start()
-    {
-        var stats = GameManager.Instance.BuildingsStats.GetStats(Constants.BarracksBuildingName);
-        SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        ObjectName = stats.BuildingName;
-        HealthPoints = stats.HealthPoints;
-        SpriteRenderer.sprite = stats.BuildingSprite;
-    }
 
     protected override void OnMouseDown()
     {

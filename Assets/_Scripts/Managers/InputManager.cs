@@ -51,7 +51,15 @@ public class InputManager : MonoBehaviour
     private void Update()
     {
         var mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (MouseOverUI) return;
+        if (MouseOverUI)
+        {
+            if (Input.GetMouseButtonUp(0))
+            {
+                m_Dragging = false;
+                m_StartedDragging = false;
+            }
+            return;
+        }
 
         #region CameraControl
 
@@ -73,6 +81,11 @@ public class InputManager : MonoBehaviour
         {
             if (!m_Dragging && Camera.main.transform.position != m_CamOrigin - m_CamDragDiff) m_Dragging = true;
             if (m_Dragging) Camera.main.transform.position = m_CamOrigin - m_CamDragDiff;
+
+            var cameraPos = Camera.main.transform.position;
+            cameraPos.x = Mathf.Clamp(cameraPos.x, 0, GridManager.Instance.Width);
+            cameraPos.y = Mathf.Clamp(cameraPos.y, 0, GridManager.Instance.Height);
+            Camera.main.transform.position = cameraPos;
         }
 
         if (Input.GetAxisRaw("Mouse ScrollWheel") > 0)
@@ -121,7 +134,8 @@ public class InputManager : MonoBehaviour
                 var intXPos = Mathf.RoundToInt(mouseWorldPos.x);
                 var intYPos = Mathf.RoundToInt(mouseWorldPos.y);
 
-                if (GridManager.Instance.GetTile(intXPos, intYPos).TileEmpty)
+                var tile = GridManager.Instance.GetTile(intXPos, intYPos); 
+                if (tile && tile.TileEmpty)
                 {
                     UIManager.Instance.CloseInformationTab();
                     if (m_SpawnerBuildingSelected)
