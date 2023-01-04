@@ -35,7 +35,7 @@ public class Soldier : Spawnable, IHaveHealth, ICanDamage
 
     private bool m_Attacking;
 
-    private void Start()
+    private void OnEnable()
     {
         var stats = GameManager.Instance.SoldiersStats.GetStats(ObjectName); //ObjectName only serialized before initialization on soldiers.
         SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -129,7 +129,7 @@ public class Soldier : Spawnable, IHaveHealth, ICanDamage
     public void Die()
     {
         OnTile.SetEmpty(true);
-        Destroy(gameObject);
+        PoolManager.Instance.CoolObject(gameObject, PoolObjectType);
     }
 
     IEnumerator TakeDamageFlashSprite()

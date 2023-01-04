@@ -47,11 +47,13 @@ public class SpawnableTab : MonoBehaviour
         if (!spawnTile || !spawnTile.TileEmpty) return;
         
         //we instantiate as soldier because there is no other spawnable type, if there was, we would check and then move.
-        var newSolider = Instantiate(m_Spawnables[m_LastUsedIndex] as Soldier, spawnTile.transform.position - new Vector3(0.5f, 0.5f, 0f), Quaternion.identity);
-        newSolider.OnTile = spawnTile;
-
+        var newSoldierObject = PoolManager.Instance.GetPoolObject(m_Spawnables[m_LastUsedIndex].PoolObjectType);
+        var newSoldier = newSoldierObject.GetComponent<Soldier>();
+        newSoldier.transform.position = spawnTile.transform.position - new Vector3(0.5f, 0.5f, 0f);
+        newSoldier.OnTile = spawnTile;
+        newSoldierObject.SetActive(true);
         if (!toGoTile || !toGoTile.TileEmpty) return;
-        newSolider.Move(toGoTile);
+        newSoldier.Move(toGoTile);
         toGoTile.SetEmpty(false);
     }
 }
